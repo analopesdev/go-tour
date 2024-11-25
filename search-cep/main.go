@@ -21,6 +21,7 @@ type ViaCEP struct {
 // go run main.gos
 func main() {
 	http.HandleFunc("/", BuscaCepHandler)
+	//multplacer
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -37,9 +38,16 @@ func BuscaCepHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	cep, error := BuscaCep(cepParam)
+
+	if error != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Hello, world!"))
+	json.NewEncoder(w).Encode(cep)
 }
 
 func BuscaCep(cep string) (*ViaCEP, error) {
