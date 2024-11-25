@@ -14,6 +14,8 @@ func main() {
 	fmt.Println(len(meuArray))
 	fmt.Println(meuArray[len(meuArray)-1])
 
+	arrayDeclarations()
+
 	for i, v := range meuArray {
 		fmt.Printf("O valor do indice é %d é %d\n", i, v)
 	}
@@ -21,4 +23,17 @@ func main() {
 	for _, v := range meuArray3 {
 		fmt.Println(v)
 	}
+}
+
+func arrayDeclarations() {
+	var meuArray [4]int
+	meuArray[0] = 1
+	meuArray[1] = 2
+
+	fmt.Println(meuArray)
+
+	for _, v := range meuArray {
+		fmt.Println(v)
+	}
+
 }
