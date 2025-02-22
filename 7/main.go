@@ -15,6 +15,10 @@ func NewConta() *Conta {
 	return &Conta{saldo: 0}
 }
 
+func NewCliente() Cliente {
+	return Cliente{Nome: "John"}
+}
+
 func (c Cliente) andou() {
 	c.Nome = "Ana"
 	fmt.Println(c.Nome, "andou")
@@ -45,4 +49,12 @@ func main() {
 	conta2 = NewConta()
 
 	fmt.Println(conta2.simular(100))
+
+	var cliente2 Cliente
+
+	cliente2 = NewCliente()
+
+	cliente2.Nome = "Ana"
+
+	fmt.Println(cliente2.Nome)
 }
